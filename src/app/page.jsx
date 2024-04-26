@@ -29,19 +29,28 @@ export default function Home() {
           ></path>
         </svg>
       </div>
-      <div className=" h-[100svh] flex  justify-center items-center">
-        <img src="barber.jpg" alt="" />
+      <div className=" h-[80svh] flex  justify-center items-center">
+        <img src="barber.jpg" className="opacity-80" alt="" />
         {/* <p>adisfnasdf </p> */}
       </div>
-      <div className="h-[100svh] p-[1.5rem]  absolute inset-0">
+      <div className="h-[80svh] p-[1.5rem]  absolute inset-0">
         <div className="flex justify-center text-2xl font-bold  text-white">
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
-          <div className="bg-yellow-400  shadow-lg p-5 w-full h-[20%] rounded-md">
-            <div>unaise</div>
+          <div className="bg-[#feda6a] bg-opacity-95 shadow-lg py-5 px-2 w-full h-[20%] rounded-md">
+            <div className="grid grid-cols-6">
+              <div className="col-span-2  flex justify-center items-center">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
+                  alt="profile"
+                  className="h-[5rem] w-[5rem] rounded-full"
+                />
+              </div>
+              <div className="col-span-4  bg-red-600">s</div>
+            </div>
           </div>
-          <div className="bg-orange-400  shadow-lg p-5 w-full h-[20%] rounded-md">
+          <div className="bg-[#fea36a] bg-opacity-95  shadow-lg p-5 w-full h-[20%] rounded-md">
             <div>baseil</div>
           </div>
         </div>
