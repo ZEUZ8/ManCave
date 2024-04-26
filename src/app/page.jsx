@@ -40,7 +40,7 @@ export default function Home() {
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
-          <div className="bg-[#feda6a] bg-opacity-95 shadow-lg py-5 px-2 w-full h-[25%] rounded-md grid ">
+          <div className="bg-[#feda6a]  shadow-lg py-5 px-2 w-full h-[25%] rounded-md grid ">
             <div className="grid grid-cols-6 ">
               <div className="col-span-2 grid justify-center items-center">
                 <img
@@ -58,7 +58,7 @@ export default function Home() {
                   <p className="">contact : 8590183715</p>
                   <p className="">Booking : 5</p>
                 </div>
-                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg ">
+                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-1 active:scale-95">
                   <p>
                     <IoIosTimer />
                   </p>{" "}
@@ -68,16 +68,42 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-[#fea36a] bg-opacity-95  shadow-lg p-5 w-full h-[25%] rounded-md">
-            <div>baseil</div>
+      
+
+          <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[25%] rounded-md grid ">
+            <div className="grid grid-cols-6 ">
+              <div className="col-span-2 grid justify-center items-center">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
+                  alt="profile"
+                  className="h-[7rem] w-[10rem] rounded-md"
+                />
+                {/* <div>
+                  <p className="font-bold ">BASIL</p>
+                </div> */}
+              </div>
+              <div className="col-span-4  px-3 flex flex-col items-center justify-between">
+                <div>
+                  <p className=" text-center font-bold text-xl pb-2">Unais</p>
+                  <p className="">contact : 8590183715</p>
+                  <p className="">Booking : 5</p>
+                </div>
+                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-2 active:scale-95">
+                  <p>
+                    <IoIosTimer />
+                  </p>{" "}
+                  <p>Book Now</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="w-full flex justify-center items-center">
+        {/* <div className="w-full flex justify-center items-center">
           <div className="flex justify-center items-center px-5 py-3 border shadow-lg w-fit rounded-lg font-bold text-xl active:scale-95 ">
             <p>Book now</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   );
