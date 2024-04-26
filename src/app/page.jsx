@@ -36,11 +36,11 @@ export default function Home() {
         {/* <p>adisfnasdf </p> */}
       </div>
       <div className="h-[80svh] p-[1.5rem]  absolute inset-0">
-        <div className="flex justify-center text-2xl font-bold  text-white">
+        <div className="flex justify-center text-5xl font-bold  text-white">
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
-          <div className="bg-[#feda6a]  shadow-lg py-5 px-2 w-full h-[25%] rounded-md grid ">
+          <div className="bg-[#feda6a]  shadow-lg py-5 px-2 w-full h-[30%] rounded-md grid ">
             <div className="grid grid-cols-6 ">
               <div className="col-span-2 grid justify-center items-center">
                 <img
@@ -70,7 +70,7 @@ export default function Home() {
 
       
 
-          <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[25%] rounded-md grid ">
+          <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[30%] rounded-md grid ">
             <div className="grid grid-cols-6 ">
               <div className="col-span-2 grid justify-center items-center">
                 <img
