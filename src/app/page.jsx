@@ -6,14 +6,16 @@ import { IoIosTimer } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 import Profile from "@/components/profile/Profile";
+import BookingModal from "@/components/BookingModal/BookingModal";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [modal,setModal] = useState(false)
   const admin = {
     username: "unais",
     email: "basil@gmail.com",
     password: "Basil@123",
   };
-
   const handleClick = async () => {
     try {
       const response = await axios.post("/api/admin/login", admin);
@@ -22,6 +24,14 @@ export default function Home() {
       console.log(err, " errro in the frontEnd login section");
     }
   };
+
+  const handleModal = ()=>{
+    setModal(prev => !prev)
+  }
+
+  useEffect(()=>{
+    console.log(modal,' the modal statein the console')
+  },[])
 
   return (
     <main className="relative">
@@ -35,63 +45,25 @@ export default function Home() {
       </div>
       <div className=" h-[100svh] flex  justify-center items-center">
         <img src="barber.jpg" className="opacity-70" alt="" />
-        {/* <p>adisfnasdf </p> */}
       </div>
       <div className="h-[90svh] p-[1rem]  absolute inset-0">
         <div className="flex justify-center text-4xl font-extrabold  text-white">
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
-          
           <div className=" w-full">
-            <Profile name={"Unais"} designation={"Hair Dresser"}/>
+            <Profile name={"Unais"} designation={"Hair Dresser"} handleModal={handleModal}/>
           </div>
           <div className="w-full">
-            <Profile name={"Basil"} designation={"Hair Dresser"}/>
+            <Profile name={"Basil"} designation={"Hair Dresser"} handleModal={handleModal}/>
           </div>
-          {/* <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[10rem] rounded-md grid ">
-            <div className="grid grid-cols-6 ">
-              <div className="col-span-2  flex justify-center items-center">
-              <div className=" flex  w-[7rem] justify-center items-center overflow-hidden aspect-square rounded-full">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
-                  alt="profile"
-                  className="  shadow-xl  "
-                />
-            
-              </div>
-              </div>
-              <div className="col-span-4  px-3 flex flex-col items-center justify-between">
-                <div>
-                  <p className=" text-center font-bold text-lg ">Unais</p>
-                  <div className="py-2 ">
-                    <div className="grid grid-cols-2 ">
-                      <p className="flex justify-start items-center gap-2 font-bold"><span>Contact</span><FaPhone/></p>
-                      <p className="flex justify-start items-center gap-2"><span>:</span>8590183715</p>
-                    </div>
-                    <div className="grid grid-cols-2 ">
-                      <p className="flex justify-start items-center gap-2 font-bold"><span>person</span><IoMdPerson/></p>
-                      <p className="flex justify-start items-center gap-2"><span>:</span>5</p>
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-1 active:scale-95  py-1">
-                  <p className="font-bold text-lg">
-                    <IoIosTimer />
-                  </p>{" "}
-                  <p className="font-bold">Book Now</p>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
-
-        {/* <div className="w-full flex justify-center items-center">
-          <div className="flex justify-center items-center px-5 py-3 border shadow-lg w-fit rounded-lg font-bold text-xl active:scale-95 ">
-            <p>Book now</p>
-          </div>
-        </div> */}
       </div>
+      {modal && (
+        <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
+          <BookingModal handleModal={handleModal} />
+        </div>
+      )}
     </main>
   );
 }
