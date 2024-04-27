@@ -33,11 +33,11 @@ export default function Home() {
           ></path>
         </svg>
       </div>
-      <div className=" h-[80svh] flex  justify-center items-center">
+      <div className=" h-[100svh] flex  justify-center items-center">
         <img src="barber.jpg" className="opacity-70" alt="" />
         {/* <p>adisfnasdf </p> */}
       </div>
-      <div className="h-[80svh] p-[1rem]  absolute inset-0">
+      <div className="h-[90svh] p-[1rem]  absolute inset-0">
         <div className="flex justify-center text-4xl font-extrabold  text-white">
           Man Cave
         </div>
