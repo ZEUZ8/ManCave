@@ -5,6 +5,7 @@ import Image from "next/image";
 import { IoIosTimer } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
+import Profile from "@/components/profile/Profile";
 
 export default function Home() {
   const admin = {
@@ -41,60 +42,29 @@ export default function Home() {
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
-          <div className="bg-[#feda6a]  shadow-lg py-5 px-2 w-full h-[10rem] rounded-md grid ">
-            <div className="grid grid-cols-6 ">
-              <div className="col-span-2 grid justify-center items-center">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
-                  alt="profile"
-                  className="h-[7rem] w-[10rem] rounded-full shadow-xl "
-                />
-                {/* <div>
-                  <p className="font-bold ">BASIL</p>
-                </div> */}
-              </div>
-              <div className="col-span-4  px-3 flex flex-col items-center justify-between">
-                <div>
-                  <p className=" text-center font-bold text-lg ">Basil</p>
-                  <div className="py-2 ">
-                    {/* <p className=""><FaPhone/> : </p> */}
-                    <div className="grid grid-cols-2 ">
-                      <p className="flex justify-start items-center gap-2"><span>Contact</span><FaPhone/></p>
-                      <p className="flex justify-start items-center gap-2"><span>:</span>8590183715</p>
-                    </div>
-                    <div className="grid grid-cols-2 ">
-                      <p className="flex justify-start items-center gap-2"><span>person</span><IoMdPerson/></p>
-                      <p className="flex justify-start items-center gap-2"><span>:</span>5</p>
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-1 active:scale-95">
-                  <p className="font-bold text-lg">
-                    <IoIosTimer />
-                  </p>{" "}
-                  <p className="font-bold">Book Now</p>
-                </div>
-              </div>
-            </div>
+          
+          <div className=" w-full">
+            <Profile name={"Unais"} designation={"Hair Dresser"}/>
           </div>
-
-          <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[10rem] rounded-md grid ">
+          <div className="w-full">
+            <Profile name={"Basil"} designation={"Hair Dresser"}/>
+          </div>
+          {/* <div className="bg-[#fea36a]  shadow-lg py-5 px-2 w-full h-[10rem] rounded-md grid ">
             <div className="grid grid-cols-6 ">
-              <div className="col-span-2 grid justify-center items-center">
+              <div className="col-span-2  flex justify-center items-center">
+              <div className=" flex  w-[7rem] justify-center items-center overflow-hidden aspect-square rounded-full">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
                   alt="profile"
-                  className="h-[7rem] w-[10rem] rounded-full shadow-xl "
+                  className="  shadow-xl  "
                 />
-                {/* <div>
-                  <p className="font-bold ">BASIL</p>
-                </div> */}
+            
+              </div>
               </div>
               <div className="col-span-4  px-3 flex flex-col items-center justify-between">
                 <div>
                   <p className=" text-center font-bold text-lg ">Unais</p>
                   <div className="py-2 ">
-                    {/* <p className=""><FaPhone/> : </p> */}
                     <div className="grid grid-cols-2 ">
                       <p className="flex justify-start items-center gap-2 font-bold"><span>Contact</span><FaPhone/></p>
                       <p className="flex justify-start items-center gap-2"><span>:</span>8590183715</p>
@@ -105,7 +75,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-1 active:scale-95 ">
+                <div className=" flex justify-center items-center w-full bg-white rounded-lg shadow-lg gap-1 active:scale-95  py-1">
                   <p className="font-bold text-lg">
                     <IoIosTimer />
                   </p>{" "}
@@ -113,7 +83,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="w-full flex justify-center items-center">
