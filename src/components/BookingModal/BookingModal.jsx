@@ -3,19 +3,28 @@ import { useFormik } from "formik";
 import { bookingValidation } from "@/validation/bookingValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const BookingModal = ({ handleModal }) => {
   const handleClick = () => {
-    toast.success("Booked👍, will notify you",{
-        autoClose:3000,
-        onClose:()=>handleClick
-    });
+    handleModal();
   };
 
-  const onSubmit = () => {
-    console.log(values, " the avlue");
-    console.log("sinan in the console")
-    handleClick();
+  const onSubmit = async () => {
+    try {
+      const response = await axios.push("/api/");
+      resetForm()
+      toast.success("Booked👍, will notify you", {
+        autoClose: 2000,
+        onClose: () => handleClick(),
+      });
+    } catch (err) {
+      console.log(err, " error in the booking");
+      toast.error(`something went wrong 😕 try later`, {
+        autoClose: 2000,
+      });
+    }
+   
   };
 
   const {
@@ -110,6 +119,7 @@ const BookingModal = ({ handleModal }) => {
                   )}
                 </div>
 
+                <h1 className="text-xs font-semibold text-gray-500">want to book a slot on a <span className="text-blue-600 active:scale-90">spesific date?</span> </h1>
                 <button
                   type="submit"
                   onClick={handleSubmit}
