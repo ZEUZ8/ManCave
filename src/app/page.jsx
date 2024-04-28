@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </div>
       {modal && (
-        <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
+        <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center h-[100svh]">
           <BookingModal handleModal={handleModal} />
         </div>
       )}
