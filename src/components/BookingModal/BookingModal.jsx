@@ -110,7 +110,7 @@ const BookingModal = ({ handleModal }) => {
                     value={values.mobile}
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    className="bg-gray-50 border border-gray-300 text-gray-900   text-sm rounded-lg  p-3"
+                    className="bg-gray-50 border border-gray-300 text-gray-900   "
                   />
                   {errors.mobile && touched.mobile && (
                     <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
