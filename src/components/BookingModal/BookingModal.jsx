@@ -101,7 +101,7 @@ const BookingModal = ({ handleModal }) => {
                   )}
                 </div>
                 <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900 rounded-lg ">
+                  <label class="block mb-2 text-sm font-medium text-gray-900 rounded-lg p-3 w-full">
                     Mobile
                   </label>
                   <input
