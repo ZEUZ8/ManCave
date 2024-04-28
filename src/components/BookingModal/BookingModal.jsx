@@ -108,15 +108,15 @@ const BookingModal = ({ handleModal }) => {
                     name="mobile"
                     placeholder="Mobile"
                     value={values.mobile}
-                    onBlur={handleBlur}
+                    // onBlur={handleBlur}
                     onChange={handleChange}
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    "
                   />
-                  {errors.mobile && touched.mobile && (
+                  {/* {errors.mobile && touched.mobile && (
                     <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
                       {errors.mobile}
                     </h1>
-                  )}
+                  )} */}
                 </div>
 
                 <h1 className="text-xs font-semibold text-gray-500">want to book a slot on a <span className="text-blue-600 active:scale-90">spesific date?</span> </h1>
