@@ -91,7 +91,7 @@ const BookingModal = ({ handleModal }) => {
                     onBlur={handleBlur}
                     type="text"
                     name="userName"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-3  w-full"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-3 w-full"
                     placeholder="Name"
                   />
                   {errors.userName && touched.userName && (
