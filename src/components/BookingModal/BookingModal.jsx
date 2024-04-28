@@ -81,10 +81,10 @@ const BookingModal = ({ handleModal }) => {
             </div>
             <div class="p-4 md:p-5">
               <form class="space-y-4">
-                {/* <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900 ">
+                <div>
+                  {/* <label class="block mb-2 text-sm font-medium text-gray-900 ">
                     Your Name
-                  </label>
+                  </label> */}
                   <input
                     value={values.userName}
                     onChange={handleChange}
@@ -99,14 +99,11 @@ const BookingModal = ({ handleModal }) => {
                       {errors.userName}
                     </h1>
                   )}
-                </div> */}
-                <div>
-                  <input type="text" placeholder="sinan is here " />
                 </div>
                 <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900 ">
+                  {/* <label class="block mb-2 text-sm font-medium text-gray-900 ">
                     Mobile
-                  </label>
+                  </label> */}
                   <input
                     name="mobile"
                     placeholder="Mobile"
