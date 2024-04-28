@@ -91,7 +91,7 @@ const BookingModal = ({ handleModal }) => {
                     onBlur={handleBlur}
                     type="text"
                     name="userName"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    "
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3    "
                     placeholder="Name"
                   />
                   {errors.userName && touched.userName && (
@@ -110,7 +110,7 @@ const BookingModal = ({ handleModal }) => {
                     value={values.mobile}
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    className="bg-gray-50 border border-gray-300 text-gray-900   text-sm rounded-lg  w-full "
+                    className="bg-gray-50 border border-gray-300 text-gray-900   text-sm rounded-lg  w-full p-3"
                   />
                   {errors.mobile && touched.mobile && (
                     <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
