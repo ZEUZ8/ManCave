@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [modal,setModal] = useState(false)
+  const [barberName,setBarberName] = useState("")
   const admin = {
     username: "unais",
     email: "basil@gmail.com",
@@ -52,16 +53,16 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
           <div className=" w-full">
-            <Profile name={"Unais"} designation={"Hair Dresser"} handleModal={handleModal}/>
+            <Profile name={"Unais"} designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
           </div>
           <div className="w-full">
-            <Profile name={"Basil"} designation={"Hair Dresser"} handleModal={handleModal}/>
+            <Profile name={"Basil"} designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
           </div>
         </div>
       </div>
       {modal && (
         <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center h-[100svh]">
-          <BookingModal handleModal={handleModal} />
+          <BookingModal handleModal={handleModal} barberName={barberName} />
         </div>
       )}
     </main>

@@ -1,8 +1,9 @@
 import React from "react";
 import "./profile.css";
 
-const Profile = ({ name, designation, handleModal }) => {
+const Profile = ({ name, designation, handleModal,setBarberName }) => {
   const handleClick = () => {
+    setBarberName(name)
     handleModal();
   };
   return (
