@@ -16,6 +16,11 @@ const BookingSchema = new Schema(
       type: String,
       required: [true, "please provide barber name"],
     },
+    bookings:{
+      type:Number,
+      required : [true,'please provide the number of customers'],
+      default:1
+    },
     status:{
         type: String,
         default:"Pending"
