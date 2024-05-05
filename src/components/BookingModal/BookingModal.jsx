@@ -13,21 +13,25 @@ const BookingModal = ({ handleModal, barberName }) => {
   };
   const onSubmit = async () => {
     try {
-      const response = await axios.post("/api/user/Bookings/bookingOnRow", values);
-      console.log(response, " the resone");
-      if (response?.data?.success) {
-        resetForm();
-        toast.success("Booked👍, will notify you", {
-          autoClose: 2000,
-          onClose: () => handleClick(),
-        });
-      } else {
-        console.log(response.data);
-        if (response?.data?.message === "Already booked") {
-          // handleClick()
-          setOpen(true);
-        }
-      }
+      console.log(values,' teh avalues in the consoel')
+      // const response = await axios.post(
+      //   "/api/user/Bookings/bookingOnRow",
+      //   values
+      // );
+      // console.log(response, " the resone");
+      // if (response?.data?.success) {
+      //   resetForm();
+      //   toast.success("Booked👍, will notify you", {
+      //     autoClose: 2000,
+      //     onClose: () => handleClick(),
+      //   });
+      // } else {
+      //   console.log(response.data);
+      //   if (response?.data?.message === "Already booked") {
+      //     // handleClick()
+      //     setOpen(true);
+      //   }
+      // }
     } catch (err) {
       console.log(err, " error in the booking");
       toast.error(`something went wrong 😕 try later`, {
@@ -48,6 +52,8 @@ const BookingModal = ({ handleModal, barberName }) => {
     initialValues: {
       userName: "",
       mobile: "",
+      adult: 1,
+      child:'',
       barberName: barberName ? barberName : "",
     },
     validationSchema: bookingValidation,
@@ -70,7 +76,7 @@ const BookingModal = ({ handleModal, barberName }) => {
             <div class="relative p-4 w-full max-w-md max-h-full">
               <div class="relative bg-white rounded-lg shadow dark:bg-gray-600">
                 <button
-                onClick={()=>setOpen(false)}
+                  onClick={() => setOpen(false)}
                   type="button"
                   class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 >
@@ -117,7 +123,7 @@ const BookingModal = ({ handleModal, barberName }) => {
                     Yes, I'm sure
                   </button>
                   <button
-                  onClick={()=>setOpen(false)}
+                    onClick={() => setOpen(false)}
                     data-modal-hide="popup-modal"
                     type="button"
                     class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
@@ -197,6 +203,45 @@ const BookingModal = ({ handleModal, barberName }) => {
                         {errors.mobile}
                       </h1>
                     )}
+                  </div>
+
+                  <div className="flex gap-2">
+                    <div>
+                      <label class="block mb-1 text-sm font-medium text-gray-900 ">
+                        Adult
+                      </label>
+                      <input
+                        name="adult"
+                        placeholder="Adult Count"
+                        value={values.adult}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full "
+                      />
+                      {errors.adult && touched.adult && (
+                        <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
+                          {errors.adult}
+                        </h1>
+                      )}
+                    </div>
+                    <div>
+                      <label class="block mb-1 text-sm font-medium text-gray-900 ">
+                        Child
+                      </label>
+                      <input
+                        name="child"
+                        placeholder="Child Count"
+                        value={values.child}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full "
+                      />
+                      {errors.child && touched.child && (
+                        <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
+                          {errors.child}
+                        </h1>
+                      )}
+                    </div>
                   </div>
 
                   <h1 className="text-xs font-semibold text-gray-500">
