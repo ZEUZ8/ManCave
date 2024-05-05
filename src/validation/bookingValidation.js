@@ -19,10 +19,12 @@ export const bookingValidation = yup.object().shape({
         .typeError('Must be only a number')
         .required(' adult customers')
         .min(1,'Atleast one customer required')
-        .max(10, 'Maximum 10 adult customers allowed'),
+        .max(10, 'Max 10 adult  allowed'),
     child : yup
         .number()
         // .matches(/^[0-9]+$/, "Must be only number")
         .typeError('Must be only a number')
-        .max(5, 'Maximum 10 child customers allowed'),
+        .min(0,' please provide valid number')
+        .default(0)
+        .max(5, 'Max 10 child  allowed'),
 })

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { bookingValidation } from "@/validation/bookingValidation";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +8,18 @@ import axios from "axios";
 
 const BookingModal = ({ handleModal, barberName }) => {
   const [open, setOpen] = useState(false);
+  const [childStatus,setChildStatus] = useState(false)
+
+  useEffect(()=>{
+    console.log(barberName,' eht bar')
+    setChildStatus(()=>{
+      if(barberName == "Unais"){
+        return true
+      }else{
+        return false
+      }
+    })
+  },[barberName])
   const handleClick = () => {
     handleModal();
   };
@@ -216,7 +228,7 @@ const BookingModal = ({ handleModal, barberName }) => {
                         value={values.adult}
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full "
+                        className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full cursor-pointer "
                       />
                       {errors.adult && touched.adult && (
                         <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
@@ -224,7 +236,7 @@ const BookingModal = ({ handleModal, barberName }) => {
                         </h1>
                       )}
                     </div>
-                    <div>
+                    <div className={`${!childStatus && 'opacity-45'}`}>
                       <label class="block mb-1 text-sm font-medium text-gray-900 ">
                         Child
                       </label>
@@ -234,7 +246,8 @@ const BookingModal = ({ handleModal, barberName }) => {
                         value={values.child}
                         onBlur={handleBlur}
                         onChange={handleChange}
-                        className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full "
+                        disabled={!childStatus}
+                        className={`bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full cursor-pointer } ${!childStatus && "cursor-not-allowed"}`}
                       />
                       {errors.child && touched.child && (
                         <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">

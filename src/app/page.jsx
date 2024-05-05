@@ -53,10 +53,10 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
           <div className=" w-full">
-            <Profile name={"Unais"} designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
+            <Profile name={"Unais"}   designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
           </div>
           <div className="w-full">
-            <Profile name={"Basil"} designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
+            <Profile name={"Basil"}  designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
           </div>
         </div>
       </div>
