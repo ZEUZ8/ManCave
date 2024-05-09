@@ -5,45 +5,63 @@ import { bookingValidation } from "@/validation/bookingValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import BookingOnDate from "../bookingOnDate/BookingOnDate";
 
-const BookingModal = ({ handleModal, barberName }) => {
+const BookingModal = ({ handleModal, barberName,setBookingOnDateStatus }) => {
   const [open, setOpen] = useState(false);
-  const [childStatus,setChildStatus] = useState(false)
+  const [childStatus, setChildStatus] = useState(false);
+  
 
-  useEffect(()=>{
-    console.log(barberName,' eht bar')
-    setChildStatus(()=>{
-      if(barberName == "Unais"){
-        return true
-      }else{
-        return false
+  useEffect(() => {
+    console.log(barberName, " eht bar");
+    setChildStatus(() => {
+      if (barberName == "Unais") {
+        return true;
+      } else {
+        return false;
       }
-    })
-  },[barberName])
+    });
+  }, [barberName]);
   const handleClick = () => {
     handleModal();
   };
+
+  const handleUpdation = async () => {
+    console.log(' teh updatin si working i')
+    try {
+      const response = await axios.put('/api/user/Bookings/updatingOnRow',values);
+      console.log(response,' the responkse on the console')
+    } catch (err) {
+      console.log("error at the booking updation in front end ", err);
+    }
+  };
+
+  const bookOnDateClick =()=>{
+    handleClick();
+    setBookingOnDateStatus(true)
+  }
+
+
   const onSubmit = async () => {
     try {
-      console.log(values,' teh avalues in the consoel')
-      // const response = await axios.post(
-      //   "/api/user/Bookings/bookingOnRow",
-      //   values
-      // );
-      // console.log(response, " the resone");
-      // if (response?.data?.success) {
-      //   resetForm();
-      //   toast.success("Booked👍, will notify you", {
-      //     autoClose: 2000,
-      //     onClose: () => handleClick(),
-      //   });
-      // } else {
-      //   console.log(response.data);
-      //   if (response?.data?.message === "Already booked") {
-      //     // handleClick()
-      //     setOpen(true);
-      //   }
-      // }
+      const response = await axios.post(
+        "/api/user/Bookings/bookingOnRow",
+        values
+      );
+      console.log(response, " the resone");
+      if (response?.data?.success) {
+        resetForm();
+        toast.success("Booked👍, will notify you", {
+          autoClose: 2000,
+          onClose: () => handleClick(),
+        });
+      } else {
+        console.log(response.data);
+        if (response?.data?.message === "Already booked") {
+          // handleClick()
+          setOpen(true);
+        }
+      }
     } catch (err) {
       console.log(err, " error in the booking");
       toast.error(`something went wrong 😕 try later`, {
@@ -65,7 +83,7 @@ const BookingModal = ({ handleModal, barberName }) => {
       userName: "",
       mobile: "",
       adult: 1,
-      child:'',
+      child: 0,
       barberName: barberName ? barberName : "",
     },
     validationSchema: bookingValidation,
@@ -79,11 +97,12 @@ const BookingModal = ({ handleModal, barberName }) => {
         id="authentication-modal"
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full  flex justify-center items-center w-full md:inset-0  max-h-full"
       >
+      
         {open && (
           <div
             id="popup-modal"
             tabindex="-1"
-            class="h-full  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0  max-h-full"
+            className="h-full  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0  max-h-full"
           >
             <div class="relative p-4 w-full max-w-md max-h-full">
               <div class="relative bg-white rounded-lg shadow dark:bg-gray-600">
@@ -126,9 +145,10 @@ const BookingModal = ({ handleModal, barberName }) => {
                     />
                   </svg>
                   <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                    Already booked a slot today with this number you sure?
+                    Already booked a slot today with this phone number you sure?
                   </h3>
                   <button
+                    onClick={handleUpdation}
                     type="button"
                     class="text-white bg-red-600 hover:bg-red-700 focus:ring-3 focus:outline-none focus:ring-red-300 dark:focus:ring-red-700 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
                   >
@@ -236,7 +256,7 @@ const BookingModal = ({ handleModal, barberName }) => {
                         </h1>
                       )}
                     </div>
-                    <div className={`${!childStatus && 'opacity-45'}`}>
+                    <div className={`${!childStatus && "opacity-45"}`}>
                       <label class="block mb-1 text-sm font-medium text-gray-900 ">
                         Child
                       </label>
@@ -247,7 +267,9 @@ const BookingModal = ({ handleModal, barberName }) => {
                         onBlur={handleBlur}
                         onChange={handleChange}
                         disabled={!childStatus}
-                        className={`bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full cursor-pointer } ${!childStatus && "cursor-not-allowed"}`}
+                        className={`bg-gray-50 border border-gray-300 text-gray-900  rounded-lg p-3 w-full cursor-pointer } ${
+                          !childStatus && "cursor-not-allowed"
+                        }`}
                       />
                       {errors.child && touched.child && (
                         <h1 className="text-xs pt-2 text-rose-500 animate-bounce px-2">
@@ -259,7 +281,10 @@ const BookingModal = ({ handleModal, barberName }) => {
 
                   <h1 className="text-xs font-semibold text-gray-500">
                     want to book a slot on a{" "}
-                    <span className="text-blue-600 active:scale-90">
+                    <span
+                      className="text-blue-600 active:scale-90 "
+                      onClick={bookOnDateClick}
+                    >
                       spesific date?
                     </span>{" "}
                   </h1>

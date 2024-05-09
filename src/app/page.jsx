@@ -8,10 +8,19 @@ import { IoMdPerson } from "react-icons/io";
 import Profile from "@/components/profile/Profile";
 import BookingModal from "@/components/BookingModal/BookingModal";
 import { useEffect, useState } from "react";
+import BookingOnDate from "@/components/bookingOnDate/BookingOnDate";
 
 export default function Home() {
-  const [modal,setModal] = useState(false)
-  const [barberName,setBarberName] = useState("")
+  const [modal, setModal] = useState(false);
+  const [barberName, setBarberName] = useState("");
+  const [bookingOnDateState, setBookingOnDateStatus] = useState(false);
+
+  const handleUpdationClick = () => {
+    console.log("updation on the ppathi vazhi");
+    handleClick();
+    setBookingOnDateStatus(true);
+  };
+
   const admin = {
     username: "unais",
     email: "basil@gmail.com",
@@ -26,16 +35,19 @@ export default function Home() {
     }
   };
 
-  const handleModal = ()=>{
-    setModal(prev => !prev)
-  }
+  const handleModal = () => {
+    setModal((prev) => !prev);
+  };
 
-  useEffect(()=>{
-    console.log(modal,' the modal statein the console')
-  },[])
+  useEffect(() => {
+    console.log(modal, " the modal statein the console");
+  }, []);
 
   return (
     <main className="relative">
+      {bookingOnDateState && (
+        <BookingOnDate/>
+      )}
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -48,21 +60,31 @@ export default function Home() {
         <img src="barber.jpg" className="opacity-70" alt="" />
       </div>
       <div className="h-[90svh] p-[1rem]  absolute inset-0">
-        <div className="flex justify-center text-4xl font-extrabold  text-white">
+        <div className="flex justify-center text-4xl font-extrabold  text-gray-700">
           Man Cave
         </div>
         <div className="flex flex-col gap-5 justify-center items-center h-full">
           <div className=" w-full">
-            <Profile name={"Unais"}   designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
+            <Profile
+              name={"Unais"}
+              designation={"Hair Dresser"}
+              handleModal={handleModal}
+              setBarberName={setBarberName}
+            />
           </div>
           <div className="w-full">
-            <Profile name={"Basil"}  designation={"Hair Dresser"} handleModal={handleModal} setBarberName={setBarberName}/>
+            <Profile
+              name={"Basil"}
+              designation={"Hair Dresser"}
+              handleModal={handleModal}
+              setBarberName={setBarberName}
+            />
           </div>
         </div>
       </div>
       {modal && (
         <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center h-[100svh]">
-          <BookingModal handleModal={handleModal} barberName={barberName} />
+          <BookingModal handleModal={handleModal} barberName={barberName} setBookingOnDateStatus={setBookingOnDateStatus}/>
         </div>
       )}
     </main>
