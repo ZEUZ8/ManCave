@@ -1,6 +1,5 @@
 import { Connect } from "@/dbConfig/connect";
 import Bookings from "@/models/userBooking";
-import axios from "axios";
 import { NextResponse,NextRequest } from "next/server";
 
 Connect()
@@ -24,7 +23,12 @@ export async function GET(request = NextRequest){
       59
     );
     try{
-        const response = await Bookings.find({$or:[{ createdAt: { $gte: startOfCurrentDay, $lte: endOfCurrentDay } },{ updatedAt: { $gte: startOfCurrentDay, $lte: endOfCurrentDay } }]})
+      const response = await Bookings.find({
+        $or: [
+          { createdAt: { $gte: startOfCurrentDay, $lte: endOfCurrentDay } },
+          { updatedAt: { $gte: startOfCurrentDay, $lte: endOfCurrentDay } }
+        ]
+      });
         if(response){
             return NextResponse.json({
                 message: "Getting Bookings successfull",
