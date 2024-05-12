@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
-import React, { useEffect,useState } from "react";
+import { useState,useEffect } from "react";
 
-const page = () => {
+const AdminHome = () => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
     fetching();
@@ -24,7 +24,7 @@ const page = () => {
         <h1 className="text-gray-700 text-xl font-bold">Bookings for Unais </h1>
       </div>
       {bookings.length && bookings.map((item)=>(
-        <div className="mt-3 m-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div key={item?.userName} className="mt-3 m-1 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         {/* <div className="flex justify-end px-4 pt-4">
           <button
             id="dropdownButton"
@@ -115,4 +115,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AdminHome;
