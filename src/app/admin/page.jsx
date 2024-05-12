@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState,useEffect } from "react";
 
-const AdminHome = () => {
+const Admin = () => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
     fetching();
@@ -115,4 +115,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default Admin;
