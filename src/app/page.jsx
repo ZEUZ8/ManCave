@@ -1,14 +1,10 @@
 "use client";
 import axios from "axios";
-import Image from "next/image";
-
-import { IoIosTimer } from "react-icons/io";
-import { FaPhone } from "react-icons/fa6";
-import { IoMdPerson } from "react-icons/io";
 import Profile from "@/components/profile/Profile";
 import BookingModal from "@/components/BookingModal/BookingModal";
 import { useEffect, useState } from "react";
 import BookingOnDate from "@/components/bookingOnDate/BookingOnDate";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
@@ -23,8 +19,8 @@ export default function Home() {
 
   const admin = {
     username: "unais",
-    email: "basil@gmail.com",
-    password: "Basil@123",
+    email: "unais@gmail.com",
+    password: "Unais@123",
   };
   const handleClick = async () => {
     try {
@@ -45,9 +41,7 @@ export default function Home() {
 
   return (
     <main className="relative">
-      {bookingOnDateState && (
-        <BookingOnDate/>
-      )}
+      {bookingOnDateState && <BookingOnDate  setOpen={setBookingOnDateStatus}/>}
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -63,7 +57,7 @@ export default function Home() {
         <div className="flex justify-center text-4xl font-extrabold  text-gray-700">
           Man Cave
         </div>
-        <div className="flex flex-col gap-5 justify-center items-center h-full">
+        <div className="grid  justify-center items-center  h-full w-full">
           <div className=" w-full">
             <Profile
               name={"Unais"}
@@ -82,9 +76,16 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="w-full fixed bottom-0 left-0 right-0 ">
+          <Footer />
+      </div>
       {modal && (
         <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center h-[100svh]">
-          <BookingModal handleModal={handleModal} barberName={barberName} setBookingOnDateStatus={setBookingOnDateStatus}/>
+          <BookingModal
+            handleModal={handleModal}
+            barberName={barberName}
+            setBookingOnDateStatus={setBookingOnDateStatus}
+          />
         </div>
       )}
     </main>
