@@ -10,9 +10,9 @@ const Profile = ({ name, designation, handleModal,setBarberName }) => {
     <div class="w-full max-w-sm bg-white  p-5 rounded-lg boxShadow">
       <div class="flex flex-col items-center ">
         <div className="grid grid-cols-2 w-full">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center ">
             <img
-              class="w-24 h-24 mb-3 rounded-full shadow-lg"
+              className="w-24 h-24 mb-3 rounded-full shadow-lg object-contain"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQF5gWz6wsBbvNl28YWltxQlBuAHnnblGgt0ajNME_Ds9roH7fCEOQAUquyRNmfaJZSI&usqp=CAU"
               alt="Bonnie image"
             />

@@ -50,7 +50,7 @@ export default function Home() {
           ></path>
         </svg>
       </div>
-      <div className=" h-[70svh] flex  justify-center items-center">
+      <div className=" h-[70svh] flex  justify-center items-center ">
         <img src="barber.jpg" className="opacity-70" alt="" />
       </div>
       <div className="h-[90svh] p-[1rem]  absolute inset-0">
