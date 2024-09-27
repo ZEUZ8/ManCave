@@ -1,5 +1,5 @@
 import { Connect } from "@/dbConfig/connect";
-import Bookings from "@/models/userBooking";
+import Bookings from "../../../../../../server/src/models/userBooking";
 import { NextResponse,NextRequest } from "next/server";
 
 Connect()

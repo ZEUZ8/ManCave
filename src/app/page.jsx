@@ -22,6 +22,7 @@ export default function Home() {
     email: "unais@gmail.com",
     password: "Unais@123",
   };
+  
   const handleClick = async () => {
     try {
       const response = await axios.post("/api/admin/login", admin);
@@ -41,7 +42,7 @@ export default function Home() {
 
   return (
     <main className="relative">
-      {bookingOnDateState && <BookingOnDate  setOpen={setBookingOnDateStatus}/>}
+      {bookingOnDateState && <BookingOnDate setOpen={setBookingOnDateStatus} />}
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full fixed bottom-0 left-0 right-0 ">
-          <Footer />
+        <Footer />
       </div>
       {modal && (
         <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center h-[100svh]">

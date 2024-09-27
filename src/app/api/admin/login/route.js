@@ -1,5 +1,5 @@
 import { Connect } from "@/dbConfig/connect";
-import Admin from "@/models/adminModal";
+import Admin from "../../../../../server/src/models/adminModal";
 import { NextRequest, NextResponse } from "next/server";
 
 Connect();

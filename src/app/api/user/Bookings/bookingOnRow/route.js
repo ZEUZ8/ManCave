@@ -1,9 +1,5 @@
-import { Connect } from "@/dbConfig/connect";
-import Bookings from "@/models/userBooking";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
-
-Connect();
 
 export async function POST(request = NextRequest) {
   try {

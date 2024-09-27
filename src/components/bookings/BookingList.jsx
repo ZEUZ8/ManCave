@@ -43,7 +43,7 @@ const BookingList = ({count, bookingList }) => {
         } flex  justify-center items-center  `}
       >
         <div className="flex  items-center justify-center border bg-white bg-opacity-20 border-white backdrop-blur-3xl p-2 rounded-lg gap-2"
-        onClick={()=>router.push("/users/mybooking")}
+        onClick={()=>router.push("/mybooking")}
         >
           <p className="text-sm ">Edit</p>
           <p className=" text-md">

@@ -10,7 +10,7 @@ const Footer = () => {
       <div>
         <button
           className="bg-blue-600 text-xs px-3 hover:bg-blue-500 active:scale-105 p-2 text-white rounded-xl "
-          onClick={() => router.push("/users/bookings")}
+          onClick={() => router.push("/bookings")}
         >
           Booking list
         </button>
@@ -18,7 +18,7 @@ const Footer = () => {
       <div>
         <button
           className="bg-blue-600 text-xs px-3 hover:bg-blue-500 active:scale-105 p-2 text-white rounded-xl "
-          onClick={() => router.push("/users/mybooking")}
+          onClick={() => router.push("/mybooking")}
         >
           My Booking
         </button>

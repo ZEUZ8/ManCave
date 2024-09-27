@@ -5,12 +5,10 @@ import { bookingValidation } from "@/validation/bookingValidation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import BookingOnDate from "../bookingOnDate/BookingOnDate";
 
-const BookingModal = ({ handleModal, barberName,setBookingOnDateStatus }) => {
+const BookingModal = ({ handleModal, barberName, setBookingOnDateStatus }) => {
   const [open, setOpen] = useState(false);
   const [childStatus, setChildStatus] = useState(false);
-  
 
   useEffect(() => {
     console.log(barberName, " eht bar");
@@ -27,20 +25,22 @@ const BookingModal = ({ handleModal, barberName,setBookingOnDateStatus }) => {
   };
 
   const handleUpdation = async () => {
-    console.log(' teh updatin si working i')
+    console.log(" teh updatin si working i");
     try {
-      const response = await axios.put('/api/user/Bookings/updatingOnRow',values);
-      console.log(response,' the responkse on the console')
+      const response = await axios.put(
+        "/api/user/Bookings/updatingOnRow",
+        values
+      );
+      console.log(response, " the responkse on the console");
     } catch (err) {
       console.log("error at the booking updation in front end ", err);
     }
   };
 
-  const bookOnDateClick =()=>{
+  const bookOnDateClick = () => {
     handleClick();
-    setBookingOnDateStatus(true)
-  }
-
+    setBookingOnDateStatus(true);
+  };
 
   const onSubmit = async () => {
     try {
@@ -97,7 +97,6 @@ const BookingModal = ({ handleModal, barberName,setBookingOnDateStatus }) => {
         id="authentication-modal"
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full  flex justify-center items-center w-full md:inset-0  max-h-full"
       >
-      
         {open && (
           <div
             id="popup-modal"
